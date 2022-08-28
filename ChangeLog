@@ -1,3 +1,9 @@
+2018-10-29  FAL Labs  <info@fallabs.com>
+
+	- Fixed build errors.
+
+	- Release: 1.2.77
+
 2012-05-24  FAL Labs  <info@fallabs.com>
 
 	* kcthread.cc (CondVar::wait): a bug on Win32 was fixed.
