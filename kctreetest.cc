@@ -2367,7 +2367,7 @@ static int32_t proctran(const char* path, int64_t rnum, int32_t thnum, int32_t i
               std::string key;
               if (cur->get_key(&key)) {
                 keys.push_back(key);
-                if (!cur->get_value(&key) && kc::BasicDB::Error::NOREC) {
+                if (!cur->get_value(&key) && db_->error() != kc::BasicDB::Error::NOREC) {
                   dberrprint(db_, __LINE__, "Cursor::get_value");
                   err_ = true;
                 }
