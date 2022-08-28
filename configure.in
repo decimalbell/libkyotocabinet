@@ -7,12 +7,12 @@
 #================================================================
 
 # Package name
-AC_INIT(kyotocabinet, 1.2.77)
+AC_INIT(kyotocabinet, 1.2.78)
 
 # Package information
 MYLIBVER=16
 MYLIBREV=13
-MYFORMATVER=5
+MYFORMATVER=6
 
 # Targets
 MYHEADERFILES="kccommon.h kcutil.h kcthread.h kcfile.h"
