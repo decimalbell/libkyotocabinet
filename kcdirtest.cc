@@ -1027,6 +1027,9 @@ static int32_t procorder(const char* path, int64_t rnum, int32_t thnum, bool rnd
      private:
       const char* visit_full(const char* kbuf, size_t ksiz,
                              const char* vbuf, size_t vsiz, size_t* sp) {
+        if (!keys_.emplace(std::string(kbuf, ksiz)).second) {
+          return NOP;
+        }
         cnt_++;
         const char* rv = NOP;
         switch (rnd_ ? myrand(7) : cnt_ % 7) {
@@ -1046,6 +1049,7 @@ static int32_t procorder(const char* path, int64_t rnum, int32_t thnum, bool rnd
         }
         return rv;
       }
+      std::set<std::string> keys_;
       int64_t rnum_;
       bool rnd_;
       int64_t cnt_;
@@ -1088,6 +1092,9 @@ static int32_t procorder(const char* path, int64_t rnum, int32_t thnum, bool rnd
      private:
       const char* visit_full(const char* kbuf, size_t ksiz,
                              const char* vbuf, size_t vsiz, size_t* sp) {
+        if (!keys_.emplace(std::string(kbuf, ksiz)).second) {
+          return NOP;
+        }
         cnt_++;
         const char* rv = NOP;
         switch (rnd_ ? myrand(7) : cnt_ % 7) {
@@ -1107,6 +1114,7 @@ static int32_t procorder(const char* path, int64_t rnum, int32_t thnum, bool rnd
         }
         return rv;
       }
+      std::set<std::string> keys_;
       int64_t rnum_;
       bool rnd_;
       int64_t cnt_;
